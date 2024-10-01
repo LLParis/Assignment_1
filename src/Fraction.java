@@ -1,4 +1,3 @@
-
 /**
 London Paris
 */
@@ -19,17 +18,17 @@ public class Fraction {
     }
 
     /**
-     Constructor 1
+     Constructor 1: Accepts numerator and denominator
      * @param numerator
      * @param denominator
      */
     public Fraction(int numerator, int denominator) {
         if (denominator == 0) {
-            throw new IllegalArgumentException("Value cant be zero.");
+            throw new IllegalArgumentException("Denominator cant be zero.");
         }
         this.numerator = numerator;
         this.denominator = denominator;
-
+        simplify();
     }
 
     /**
@@ -48,6 +47,14 @@ public class Fraction {
         if (denominator < 0) {
             throw new IllegalArgumentException("Denominator cant be negative.");
         }
+
+        /**
+         Convert mixed fraction to improper fraction
+         */
+        if (wholeNum < 0) {
+            numerator = -Math.abs(wholeNum * denominator * numerator);
+        }
+        simplify(); // Make sure fraction is in simplest form
     }
     /**
      Copy Constructor
@@ -75,6 +82,32 @@ public class Fraction {
         }
         this.numerator = n;
         this.denominator = d;
+        simplify();
+    }
+
+    /**
+     Simplify method
+     */
+    private void simplify() {
+        int gcd = gcd(Math.abs(numerator), denominator);
+        numerator /= gcd;
+        denominator /= gcd;
+
+        // Adjust for negative denominator
+        if (denominator < 0) {
+            numerator = -numerator;
+            denominator = - denominator;
+        }
+    }
+
+    /**
+     Calculate the greatest common divisor
+     */
+    private int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
     }
 
     /**
