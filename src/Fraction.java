@@ -52,13 +52,17 @@ public class Fraction {
          Convert mixed fraction to improper fraction
          */
         if (wholeNum < 0) {
-            numerator = -Math.abs(wholeNum * denominator * numerator);
+            numerator = -Math.abs(wholeNum * denominator + numerator);
+        } else {
+            numerator = wholeNum * denominator + numerator;
         }
-        simplify(); // Make sure fraction is in simplest form
+        simplify(); // Make sure fraction is in its most simple form
     }
     /**
      Copy Constructor
      */
+
+
 
     /**
      Accessor methods
