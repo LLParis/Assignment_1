@@ -246,5 +246,4 @@ public class TestAggregationClass {
        }
        return true;
    }
-
 }

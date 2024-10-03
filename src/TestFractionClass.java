@@ -104,8 +104,7 @@ public class TestFractionClass {
    {
        int count = 0;
        int expectedCount = 8;
-       
-       
+
            
    // Test #1 -- Test for constructor with 2 parameters and its upkeep of negative fractions. 
        Fraction f1 = new Fraction(5,3);// 5/3
