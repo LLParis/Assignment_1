@@ -18,24 +18,34 @@ public class Fraction {
     }
 
     /**
-     Constructor 1: Accepts numerator and denominator
+     * Constructor 1: Accepts numerator and denominator.
+     * If the denominator is 0, it throws an IllegalArgumentException.
+     * The fraction is simplified after creation.
+     *
      * @param numerator
      * @param denominator
+     * @throws IllegalArgumentException if the denominator is zero
      */
     public Fraction(int numerator, int denominator) {
         if (denominator == 0) {
-            throw new IllegalArgumentException("Denominator cant be zero.");
+            throw new IllegalArgumentException("Denominator cannot be zero.");
         }
         this.numerator = numerator;
         this.denominator = denominator;
-        simplify();
+        simplify(); // Simplify the fraction after initialization
     }
 
     /**
-     Constructor 2
-     * @param wholeNum
-     * @param numerator
-     * @param denominator
+     * Constructor 2 Mixed Fractions:
+     * The whole part, numerator, and denominator are used to represent a mixed fraction.
+     * If the denominator is 0, an IllegalArgumentException is thrown.
+     * The sign of the fraction is determined by the whole part (wholeNum).
+     * If the whole part is negative, the entire fraction will be negative. The fraction is simplified.
+     *
+     * @param wholeNum the whole part of the mixed fraction
+     * @param numerator the numerator of the fraction
+     * @param denominator the denominator of the fraction
+     * @throws IllegalArgumentException if the denominator is zero or if the numerator or denominator is negative.
      */
     public Fraction(int wholeNum, int numerator, int denominator) {
         if (denominator == 0) {
@@ -62,8 +72,9 @@ public class Fraction {
         simplify(); // Make sure fraction is in its most simple form
     }
     /**
-     Copy Constructor
-     @param obj
+     * Copy Constructor: Creates a new Fraction object by copying another Fraction object.
+     *
+     * @param obj
      */
     public Fraction(Fraction obj) {
         this.numerator = obj.numerator;
@@ -96,12 +107,20 @@ public class Fraction {
     }
 
     /**
-     Simplify method
+     * Simplifies the fraction by dividing the numerator and denominator
+     * by their greatest common divisor (GCD).
+     * If the denominator is negative, the sign is transferred to the numerator
+     * to keep the denominator positive.
      */
     private void simplify() {
         int gcd = gcd(Math.abs(numerator), denominator);
         numerator /= gcd;
         denominator /= gcd;
+
+        // If the numerator is 0, set the fraction to 0/1
+        if (numerator == 0) {
+            denominator = 1;
+        }
 
         // Adjust for negative denominator
         if (denominator < 0) {
@@ -153,7 +172,7 @@ public class Fraction {
      * @return j
      */
     public Fraction multiply(Fraction obj) {
-        return new Fraction(this.numerator * obj.denominator, this.denominator * obj.numerator);
+        return new Fraction(this.numerator * obj.numerator, this.denominator * obj.denominator);
     }
 
     /**
@@ -206,7 +225,6 @@ public class Fraction {
 
         return newNumerator == otherNumerator;
     }
-
 
     @Override
     public String toString() {
