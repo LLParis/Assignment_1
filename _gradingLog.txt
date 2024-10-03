@@ -1,0 +1,42 @@
+
+----Fraction Class TEST SETS -------------------------------------------------------
+
+Test Set 01: Test for no-argument constructor and accessor methods              PASSED    
+Test Set 01: Test for copy constructor                                          PASSED    
+Test Set 02: Test for simplify() method                                         PASSED    
+Test Set 02: Test for set() method and exception it must throw                  PASSED    
+Test Set 02: Test fraction sign change in set() method                          PASSED    
+Test Set 03: Test for first constructor and negative fractions                  PASSED    
+Test Set 03: Test for constructor with 2 parameters and simplify()              PASSED    
+Test Set 03: Test for constructor with 2 parameters and exception               PASSED    
+Test Set 03: Test for constructor with 3 parameters and simplify()              PASSED    
+Test Set 03: Test constructor with 3 parameters and negative fractions          PASSED    
+Test Set 03: Test for constructor with 3 parameters and denominator=0 exception PASSED    
+Test Set 03: Test for constructor with 3 parameters and numerator<0 exception   PASSED    
+Test Set 03: Test for constructor with 3 parameters and denominator<0 exception PASSED    
+Test Set 04: Test for add() method                                              PASSED    
+Test Set 04: Test for subtract() method                                         PASSED    
+Test Set 05: Test for multiply() method                                         PASSED    
+Test Set 05: Test for divide() method                                           PASSED    
+Test Set 06: Test for less() method                                             PASSED    
+Test Set 06: Test for more() method                                             PASSED    
+Test Set 07: Test for equals() method                                           PASSED    
+Test Set 07: Test for toString() method                                         PASSED    
+
+----Aggregation Class TEST SETS -------------------------------------------------------
+
+Test Set 01: Test for no-argument constructor                                   PASSED    
+Test Set 01: Test for array with parameters                                     PASSED    
+Test Set 01: constructor and fraction deep copy                                 PASSED    
+Test Set 01: constructor and array deep copy                                    PASSED    
+Test Set 01: constructor and each Rectangle element deep copy                   PASSED    
+Test Set 02: Test for deep copy in getFraction()                                PASSED    
+Test Set 02: Test for deep copy in getArray()                                   PASSED    
+Test Set 02: Test for getDouble()                                               PASSED    
+Test Set 02: Test for setFraction() method deep copy                            PASSED    
+Test Set 02: Test for setArray() method deep copy                               PASSED    
+Test Set 02: Test for setDouble() method                                        PASSED    
+Test Set 03: Test for copy constructor basic functionality                      PASSED    
+Test Set 03: Test for deep copy of fraction by copy constructor                 PASSED    
+Test Set 03: Test for deep copy of array by copy constructor                    PASSED    
+Test Set 03: Test for deep copy of array elments by copy constructor            PASSED    

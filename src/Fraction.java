@@ -36,41 +36,37 @@ public class Fraction {
     }
 
     /**
-     * Constructor 2 Mixed Fractions:
-     * The whole part, numerator, and denominator are used to represent a mixed fraction.
-     * If the denominator is 0, an IllegalArgumentException is thrown.
-     * The sign of the fraction is determined by the whole part (wholeNum).
-     * If the whole part is negative, the entire fraction will be negative. The fraction is simplified.
+     * Constructor for mixed fractions (whole part, numerator, denominator).
+     * Converts the mixed fraction to an improper fraction, and ensures simplification.
      *
      * @param wholeNum The whole part of the mixed fraction
-     * @param numerator The numerator of the fraction
-     * @param denominator The denominator of the fraction
-     * @throws IllegalArgumentException If the denominator is zero or if the numerator or denominator is negative.
+     * @param numerator The numerator of the fractional part
+     * @param denominator The denominator of the fractional part (must not be 0)
+     * @throws IllegalArgumentException if the denominator is 0
      */
     public Fraction(int wholeNum, int numerator, int denominator) {
         if (denominator == 0) {
-            throw new IllegalArgumentException("Denominator cant be zero.");
+            throw new IllegalArgumentException("Denominator cannot be zero.");
         }
         if (numerator < 0) {
-            throw new IllegalArgumentException("Numerator cant be negative.");
+            throw new IllegalArgumentException("Numerator cannot be negative.");
         }
         if (denominator < 0) {
-            throw new IllegalArgumentException("Denominator cant be negative.");
+            throw new IllegalArgumentException("Denominator cannot be negative.");
+        }
+        // Convert mixed fraction to improper fraction
+        if (wholeNum < 0) {
+            this.numerator = -(Math.abs(wholeNum) * denominator + numerator);  // Sign is applied to the numerator
+        } else {
+            this.numerator = wholeNum * denominator + numerator;
         }
 
-        this.numerator = numerator;
         this.denominator = denominator;
 
-        /**
-         Convert mixed fraction to improper fraction
-         */
-        if (wholeNum < 0) {
-            numerator = -Math.abs(wholeNum * denominator + numerator);
-        } else {
-            numerator = wholeNum * denominator + numerator;
-        }
-        simplify(); // Make sure fraction is in its most simple form
+        // Simplify the fraction
+        simplify();
     }
+
     /**
      * Copy Constructor: Creates a new Fraction object by copying another Fraction object.
      *
@@ -286,16 +282,22 @@ public class Fraction {
             return this.numerator + "/" + this.denominator;
         } else {
             // Case for improper fractions (numerator >= denominator)
-            int wholePart = this.numerator / this.denominator; // Whole part can be negative if numerator or denominator is negative
-            int remainder = Math.abs(this.numerator % this.denominator); // Remainder is always positive
+            int wholePart = this.numerator / this.denominator; // Whole part
+            int remainder = Math.abs(this.numerator % this.denominator); // Remainder is positive
 
             if (remainder == 0) {
                 // Case where the fraction is a whole number (-6/3 becomes -2)
                 return this.numerator + "/" + this.denominator + " or " + wholePart;
             } else {
                 // Case for mixed fractions (-25/24 or -1 and 1/24)
-                return this.numerator + "/" + this.denominator + " or " + wholePart + " and " + remainder + "/" + Math.abs(this.denominator);
+                if (wholePart < 0) {
+                    return this.numerator + "/" + this.denominator + " or " + wholePart + " and -" + remainder + "/" + Math.abs(this.denominator);
+                } else {
+                    return this.numerator + "/" + this.denominator + " or " + wholePart + " and " + remainder + "/" + Math.abs(this.denominator);
+                }
             }
         }
     }
+
+
 }

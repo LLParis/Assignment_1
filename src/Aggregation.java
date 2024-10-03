@@ -63,7 +63,7 @@ public class Aggregation {
      *
      * @return A deep copy of the fractionField
      */
-   public Fraction getFractionField() {
+   public Fraction getFraction() {
        return new Fraction(this.fractionField);
    }
 
@@ -73,7 +73,7 @@ public class Aggregation {
      *
      * @return A deep copy of the arrayField
      */
-   public Rectangle[] getArrayField() {
+   public Rectangle[] getArray() {
        Rectangle[] arrayCopy = new Rectangle[this.arrayField.length];
        for (int i =  0; i < this.arrayField.length; i++) {
            arrayCopy[i] = new Rectangle(this.arrayField[i]);
@@ -87,7 +87,7 @@ public class Aggregation {
      *
      * @return
      */
-   public double getDoubleField() {
+   public double getDouble() {
        return this.doubleField;
    }
 
@@ -97,7 +97,7 @@ public class Aggregation {
      *
      * @param fraction The Fraction to set (deep copied)
      */
-   public void setFractionField(Fraction fraction) {
+   public void setFraction(Fraction fraction) {
        this.fractionField = new Fraction(fraction);
    }
 
@@ -107,7 +107,7 @@ public class Aggregation {
      *
      * @param array The Rectangle array to be set (deep copied)
      */
-   public void setArrayField(Rectangle[] array) {
+   public void setArray(Rectangle[] array) {
        this.arrayField = new Rectangle[array.length];
        for (int i = 0; i < array.length; i++) {
            this.arrayField[i] = new Rectangle(array[i]);
@@ -120,7 +120,7 @@ public class Aggregation {
      *
      * @param doubleField The double value to set
      */
-   public void setDoubleField(double doubleField) {
+   public void setDouble(double doubleField) {
        this.doubleField = doubleField;
    }
 
